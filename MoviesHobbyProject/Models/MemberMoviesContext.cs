@@ -127,7 +127,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 1,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -135,7 +135,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 2,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -143,7 +143,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 3,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -151,7 +151,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 4,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -159,7 +159,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 5,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -167,7 +167,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 6,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -175,7 +175,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 7,
-                    isMovie = true
+                    IsMovie = true
                 },
                 new MovieFavorites
                 {
@@ -183,7 +183,7 @@ namespace MoviesHobbyProject.Models
                     Rating = 1,
                     GroupMembersID = 1,
                     SavedMoviesID = 8,
-                    isMovie = true
+                    IsMovie = true
                 }
             );
         }

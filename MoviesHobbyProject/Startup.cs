@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using MoviesHobbyProject.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,42 +19,29 @@ namespace MoviesHobbyProject
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+        public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddDbContext<MemberMoviesContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MemberMoviesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
-
             app.UseDeveloperExceptionPage();
-
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
+            app.UseRouting();
             app.UseFileServer();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("default", "{controller}/{action = Index}");
-
-                routes.MapRoute("index", "index/{id?}", defaults: new { controller = "HomeController", action = "Index" });
-
-                routes.MapRoute("movie", "index/{id?}", defaults: new { controller = "MovieController", action = "Index" });
-            });
-
+            
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
@@ -63,7 +53,9 @@ namespace MoviesHobbyProject
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
