@@ -9,15 +9,16 @@ namespace MovieHobbiesProject.Controllers
 {
     public class HomeController : Controller
     {
-        private MovieContext context { get; set; }
+       // private MovieContext context { get; set; }
 
-        public HomeController(MovieContext ctx)
-        {
-            context = ctx;
-        }
+       // public HomeController(MovieContext ctx)
+       // {
+        //    context = ctx;
+       // }
         public IActionResult Index()
             {
-                return Redirect("~/html/index.html");
+            // return Redirect("../Views/Home/Index.chtml");
+            return View("/Views/Home/Index.cshtml");
 
             }
     }
