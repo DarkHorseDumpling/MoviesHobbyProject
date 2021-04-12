@@ -17,8 +17,7 @@ namespace MovieHobbiesProject.Controllers
        // }
         public IActionResult Index()
             {
-            // return Redirect("../Views/Home/Index.chtml");
-            return View("/Views/Home/Index.cshtml");
+            return View();
 
             }
     }
