@@ -6,7 +6,7 @@ namespace MovieHobbiesProject.Controllers
     {
         public IActionResult Index()
         {
-            return Redirect("~/html/movie.html");
+            return View("/Views/Movie/MovieInfo.cshtml");
         }
     }
 }

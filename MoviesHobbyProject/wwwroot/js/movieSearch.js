@@ -37,7 +37,7 @@
 
     function movieSelected(id) {
         sessionStorage.setItem('movieId', id);
-        window.location = '../html/movie.html';
+        window.location = '../Views/Movie/MovieInfo.cshtml';
         return false;
     }
 

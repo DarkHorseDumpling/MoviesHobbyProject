@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "My Movies";
+    Layout = "_Layout";
 }
+
+
+
+<body>
+    <div class="container">
+        <div id="movies" class="well"></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../js/movieSearch.js"></script>
+    <script>
+        getMovie();
+    </script>
+</body>
+
