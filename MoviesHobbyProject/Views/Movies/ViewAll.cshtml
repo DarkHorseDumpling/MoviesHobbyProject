@@ -1,0 +1,13 @@
+﻿@model HobbyViewModel
+
+    <div class="container">
+        <h1>@ViewBag.Title</h1>
+
+        <ul>
+
+            @foreach (SavedMovies m in Model.MoviesList)
+            {
+                <li>@m.MovieName</li>
+            }
+        </ul>
+    </div>
