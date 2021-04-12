@@ -15,16 +15,16 @@ namespace MoviesHobbyProject.Controllers
         {
             context = ctx;
         }
-        public IActionResult About(int id) //untested method
+        public IActionResult About(int id)
         {
-            var members = context.Members
-                .Where(m => m.GroupMembersID == id);
+            var members = context.Members.ToList();
             var model = new HobbyViewModel
             {
+                TeamList = members,
                 MemID = id
             };
             ViewBag.Title = "About Me";
-            return View();
+            return View(model);
         }
         public IActionResult Favorites()
         {
