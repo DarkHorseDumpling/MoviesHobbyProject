@@ -1,5 +1,18 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model HobbyViewModel
 @{
+    ViewBag.Title = "About Our Project";
+    <style> h1 {text-align: center;
+                background-color: gainsboro;
+                color: black;
+                font: Arial;
+            }
+            h2 {
+                font: Arial;
+            }
+    </style>
+    <div class="container">
+        <h1>@ViewBag.Title</h1> <br/>
+       @* <img src="/images/moviePic.jpg">*@
+        <h2>Us here within the Movies Hobby Project love watching, discussing, and exploring movies! We developed this application for fellow movie enthusiasts, and common folk, to be able to have a place to find new movies, and explore our favorites! We hope that our application serves you well in your movie exploring!</h2>
+    </div>
 }
