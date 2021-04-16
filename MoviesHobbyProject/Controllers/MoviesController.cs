@@ -56,7 +56,7 @@ namespace MovieHobbiesProject.Controllers
                     _context.Movies.Update(selectedMovie.Movie);
                 }
                 _context.SaveChanges();
-                return RedirectToAction("MovieDetails", selectedMovie.Movie);
+                return RedirectToAction("ViewAll");
             }
             else
             {
