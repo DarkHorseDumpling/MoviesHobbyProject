@@ -19,7 +19,7 @@
                     let poster_post = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
                     output += `
                         <div class="col-md-3">
-                            <div class="well text-center">
+                            <div class="card card-body bg-light text-center">
                                 <img src="${poster_post}">
                                 <h5>${movie.original_title}</h5>
                                 <a onclick="movieSelected('${movie.id}'); getMovie();" class="btn btn-primary">Movie Details</a>
