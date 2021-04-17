@@ -13,5 +13,15 @@ namespace MoviesHobbyProject.Models
         public int APIReferenceID { get; set; }
         public string MovieName { get; set; }
 
+        public string Slug
+        {
+            get
+            {
+                if (MovieName == null)
+                    return "";
+                else
+                    return MovieName.Replace(' ', '-');
+            }
+        }
     }
 }

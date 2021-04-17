@@ -1,4 +1,24 @@
-﻿@model HobbyViewModel
+﻿@model MovieViewModel
 @{
     ViewBag.Title = "Add a new movie";
 }
+<div class="text-light">
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row">
+            <label asp-for="Movie.MovieName" class="col-3 col-form-label">Movie Name:</label>
+            <div class="col-9">
+                <input type="text" class="form-control" id="MovieName" asp-for="Movie.MovieName">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Movie.APIReferenceID" class="col-3 col-form-label">API Reference ID:</label>
+            <div class="col-9">
+                <input type="text" class="form-control" id="APIReferenceID" asp-for="Movie.APIReferenceID">
+            </div>
+        </div>
+        <input type="hidden" asp-for="Movie.SavedMoviesID" value="@ViewBag.AddID" />
+        <button class="text-uppercase ml-2 btn btn-md btn-primary" type="submit">Submit</button>
+        <a asp-controller="Home" asp-action="Index" class="text-uppercase ml-2 btn btn-md btn-warning">Cancel</a>
+    </form>
+</div>

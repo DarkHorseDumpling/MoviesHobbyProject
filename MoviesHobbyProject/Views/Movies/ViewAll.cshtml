@@ -7,7 +7,7 @@
 
             @foreach (SavedMovies m in Model.MoviesList)
             {
-                <li>@m.MovieName</li>
+                <li><a class="btn btn-link" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">@m.MovieName</a></li>
             }
         </ul>
     </div>
