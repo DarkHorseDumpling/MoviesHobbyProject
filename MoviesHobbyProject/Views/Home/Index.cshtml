@@ -1,47 +1,23 @@
 ﻿@model HobbyViewModel
-@{
-    ViewBag.Title = "My Movies";
-    Layout = "_Layout";
-}
 
 
 
 
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Search</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css">
-</head>
-
-<body>
-
-    <div class="container" id="searchPrompt">
-        <div class="jumbotron">
-            <h3 class="text-center">Search For A Movie</h3>
-            <form id="searchForm">
-                <input type="text" class="form-control" id="searchText" placeholder="Search Movies" name="query">
-            </form>
-        </div>
+<div id="searchPrompt">
+    <div class="jumbotron">
+        <h3 class="text-center">Search For A Movie</h3>
+        <form id="searchForm">
+            <input type="text" class="form-control" id="searchText" placeholder="Search Movies" name="query">
+        </form>
     </div>
-
-    <div class="container">
-        <div id="movies" class="row"></div>
-    </div>
-
-    <div class="container">
-        <div id="movie"></div>
-    </div>
+</div>
 
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7"
-            crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="../js/movieSearch.js"></script>
-</body>
+<div id="movies" class="row"></div>
 
+<div id="movie" class="well"></div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="../js/movieSearch.js"></script>
 
 
