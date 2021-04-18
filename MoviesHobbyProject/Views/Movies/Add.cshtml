@@ -1,18 +1,18 @@
 ﻿@model MovieViewModel
-@{
-    ViewBag.Title = "Add a new movie";
-}
-<div class="text-light">
+<div class="jumbotron">
+    <h1 class="text-center h3">@ViewBag.Title</h1>
+</div>
+<div class="p-5">
     <form asp-action="Edit" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group row">
-            <label asp-for="Movie.MovieName" class="col-3 col-form-label">Movie Name:</label>
+            <h5 class="col-3"><label asp-for="Movie.MovieName" class="col-form-label">Movie Name:</label></h5>
             <div class="col-9">
                 <input type="text" class="form-control" id="MovieName" asp-for="Movie.MovieName">
             </div>
         </div>
         <div class="form-group row">
-            <label asp-for="Movie.APIReferenceID" class="col-3 col-form-label">API Reference ID:</label>
+            <h5 class="col-3"><label asp-for="Movie.APIReferenceID" class="col-form-label">API Reference ID:</label></h5>
             <div class="col-9">
                 <input type="text" class="form-control" id="APIReferenceID" asp-for="Movie.APIReferenceID">
             </div>

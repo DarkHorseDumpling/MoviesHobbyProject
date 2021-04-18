@@ -27,7 +27,7 @@ namespace MoviesHobbyProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddHttpClient();
             services.AddDbContext<MemberMoviesContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MemberMoviesContext")));
         }

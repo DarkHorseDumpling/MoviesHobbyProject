@@ -1,6 +1,10 @@
-﻿@model MovieViewModel
-@{
-    ViewBag.Title = "Movie Details";
-}
-
-<h1>@Model.Movie.MovieName</h1>
+﻿@model MovieApiModel
+<div class="jumbotron">
+    <h1 class="text-center h3">@Model.Title</h1>
+</div>
+<div class="p-5">
+    <h2 class="h5">@Model.Tagline</h2>
+    <img src="https://image.tmdb.org/t/p/w185/@Model.Poster_path" />
+    <hr />
+    <p class="lead">@Model.Overview</p>
+</div>

@@ -1,13 +1,12 @@
 ﻿@model HobbyViewModel
 
-<div class="container">
-    <h1>@ViewBag.Title</h1>
-
-    <ul>
-        <!--This section still needs to be filtered by the stored member ID and set to display correct group members-->
-        @foreach (GroupMembers m in Model.TeamList)
-        {
-            <li>@m.FirstName</li>
-        }
-    </ul>
+<div class="jumbotron">
+    <h1 class="text-center h3">@ViewBag.Title</h1>
+</div>
+<div class="p-5">
+    @foreach (GroupMembers m in Model.TeamList.Where(x => x.GroupMembersID == Model.MemID))
+    {
+        <h2 class="h4">Name: @m.FirstName @m.LastName</h2>
+        <p class="lead">@m.MemberBio</p>
+    }
 </div>

@@ -1,10 +1,10 @@
 ﻿@model HobbyViewModel
 
-    <div class="container">
-        <h1>@ViewBag.Title</h1>
-
+    <div class="jumbotron">
+        <h1 class="text-center h3">@ViewBag.Title</h1>
+    </div>
+    <div class="p-5">
         <ul>
-
             @foreach (SavedMovies m in Model.MoviesList)
             {
                 <li><a class="btn btn-link" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">@m.MovieName</a></li>
