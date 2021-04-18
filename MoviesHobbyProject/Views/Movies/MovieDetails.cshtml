@@ -1,25 +1,10 @@
-﻿@model MovieViewModel
-@{
-    ViewBag.Title = "Movie Details";
-    Layout = "_Layout";
-}
-
-<h1>@Model.Movie.MovieName</h1>
-
-<body>
-    <div class="container">
-        <div id="movie" class="well"></div>
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7"
-            crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="../js/movieSearch.js"></script>
-    <script>
-        getMovieInfo();
-        getMovie();
-    </script>
-</body>
+﻿@model MovieApiModel
+<div class="jumbotron">
+    <h1 class="text-center h3">@Model.Title</h1>
+</div>
+<div class="p-5">
+    <h2 class="h5">@Model.Tagline</h2>
+    <img src="https://image.tmdb.org/t/p/w185/@Model.Poster_path" />
+    <hr />
+    <p class="lead">@Model.Overview</p>
+</div>
