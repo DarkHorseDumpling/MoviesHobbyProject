@@ -33,6 +33,12 @@
             .catch((err) => {
                 console.log(err);
             });
+}
+
+    function getMovieInfo(searchTerm) {
+        const searchTerm = '';
+        const apiKey = '078923f64c5714a90fb9477198305522';
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`)
     }
 
     function movieSelected(id) {

@@ -1,6 +1,25 @@
 ﻿@model MovieViewModel
 @{
     ViewBag.Title = "Movie Details";
+    Layout = "_Layout";
 }
 
 <h1>@Model.Movie.MovieName</h1>
+
+<body>
+    <div class="container">
+        <div id="movie" class="well"></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../js/movieSearch.js"></script>
+    <script>
+        getMovieInfo();
+        getMovie();
+    </script>
+</body>
