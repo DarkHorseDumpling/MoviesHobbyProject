@@ -13,5 +13,7 @@ namespace MoviesHobbyProject.Models
 
         public int MemID { get; set; }
         public int MovID { get; set; }
+        public string Poster_path { get; set; }
+        public int Id { get; set; }
     }
 }

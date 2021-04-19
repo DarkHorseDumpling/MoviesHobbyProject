@@ -10,6 +10,7 @@ namespace MoviesHobbyProject.Models
         public string Backdrop_path { get; set; }
         public BelongsToCollection Belongs_to_collection { get; set; }
         public Genre[] Genres { get; set; }
+        public ICollection<SavedMovies> MoviesList { get; set; }
         public string Homepage { get; set; }
         public int Id { get; set; }
         public string Imdb_id { get; set; }

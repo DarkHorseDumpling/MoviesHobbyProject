@@ -18,10 +18,10 @@
                 $.each(movies, (index, movie) => {
                     let poster_post = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
                     output += `
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-3">
                             <div class="card card-body bg-light text-center">
                                 <img src="${poster_post}">
-                                <h5>${movie.original_title}</h5>
+                                <h6 class="pt-1">${movie.original_title}</h6>
                                 <a onclick="movieSelected('${movie.id}'); getMovie();" class="btn btn-primary">Movie Details</a>
                             </div>
                         </div>
@@ -35,11 +35,6 @@
             });
 }
 
-    function getMovieInfo(searchTerm) {
-        const searchTerm = '';
-        const apiKey = '078923f64c5714a90fb9477198305522';
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`)
-    }
 
     function movieSelected(id) {
         sessionStorage.setItem('movieId', id);
