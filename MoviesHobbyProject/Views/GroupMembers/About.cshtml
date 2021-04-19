@@ -7,9 +7,22 @@
     {
         <h2 class="h4">Name: @m.FullName</h2>
         <p class="lead">@m.MemberBio</p>
-    }
-    @foreach (MovieFavorites f in Model.FavoritesCollection.Where(x => x.GroupMembersID == Model.MemID))
-    {
-        <p>@f.MovieFavoritesID</p>
+        <hr color="gray" />
+        @foreach (MovieFavorites f in Model.FavoritesCollection.Where(x => x.GroupMembersID == Model.MemID))
+        {
+            @foreach (SavedMovies l in Model.MoviesList.Where(y => y.SavedMoviesID == f.SavedMoviesID))
+            {
+                <h3 class="h5 float-left">My favorite movie is @l.MovieName!</h3>
+                <div class="well float-right">
+                    <p class="lead">
+                        <em>Learn More About My Favorite: </em>
+                        <a class="btn btn-outline-dark ml-2" asp-area="" asp-controller="Movies"
+                            asp-action="MovieDetails" asp-route-slug="@l.Slug"
+                            asp-route-id="@l.SavedMoviesID">Learn More</a>
+                    </p>
+                </div>
+            }
+        }
+        <p class="lead float-left">@m.FavMovieReason</p>
     }
 </div>

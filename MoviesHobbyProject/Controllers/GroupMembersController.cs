@@ -24,6 +24,7 @@ namespace MoviesHobbyProject.Controllers
             {
                 TeamList = members,
                 FavoritesCollection = favorites,
+                MoviesList = movies,
                 MemID = id
             };
             ViewBag.Title = "About Me";
