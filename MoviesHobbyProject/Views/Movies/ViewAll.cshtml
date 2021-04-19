@@ -3,11 +3,19 @@
     <div class="jumbotron">
         <h1 class="text-center h3">@ViewBag.Title</h1>
     </div>
-    <div class="p-5">
-        <ul>
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+
             @foreach (SavedMovies m in Model.MoviesList)
             {
-                <li><a class="btn btn-link" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">@m.MovieName</a></li>
+
+                <div class="cols-md-2 mb-3 p-2">
+                    <div class="card card-body bg-light text-center">
+                        <a class="btn btn-dark btn-outline-dark btn-rounded text-light" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">@m.MovieName</a>
+                    </div>
+                </div>
+
             }
-        </ul>
+        </div>
+
     </div>
