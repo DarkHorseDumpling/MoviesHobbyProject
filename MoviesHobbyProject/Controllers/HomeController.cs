@@ -11,7 +11,7 @@ namespace MovieHobbiesProject.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.Title = "Home";
+            ViewBag.Title = "Search For A Movie";
             return View();
         }
         public IActionResult AboutUs()

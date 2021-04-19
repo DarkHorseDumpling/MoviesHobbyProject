@@ -33,6 +33,7 @@ namespace MovieHobbiesProject.Controllers
         {
             ViewBag.Title = "Add A New Movie";
             ViewBag.AddID = "0";
+            this.LoadViewBag();
             return View();
         }
         [HttpGet]
@@ -40,6 +41,7 @@ namespace MovieHobbiesProject.Controllers
         {
             ViewBag.Title = "Edit the Movie";
             ViewBag.AddID = id;
+            this.LoadViewBag();
             MovieViewModel movie = new MovieViewModel
             {
                 Movie = _context.Movies
@@ -50,15 +52,25 @@ namespace MovieHobbiesProject.Controllers
         [HttpPost]
         public IActionResult Edit(MovieViewModel selectedMovie)
         {
+            MovieFavorites favorite = new MovieFavorites
+            {
+                Rating = selectedMovie.FavRating,
+                GroupMembersID = selectedMovie.MemID,
+                SavedMoviesID = selectedMovie.MovID,
+                IsMovie = true,
+                MovieInfo = selectedMovie.Movie
+            };
             if (ModelState.IsValid)
             {
                 if(selectedMovie.MovID == 0)
                 {
                     _context.Movies.Add(selectedMovie.Movie);
+                    _context.Favorites.Add(favorite);
                 }
                 else
                 {
                     _context.Movies.Update(selectedMovie.Movie);
+                    _context.Favorites.Update(favorite);
                 }
                 _context.SaveChanges();
                 return RedirectToAction("ViewAll");
@@ -94,6 +106,11 @@ namespace MovieHobbiesProject.Controllers
                 }
                 return View(movie);
             }
+        }
+
+        private void LoadViewBag()
+        {
+            ViewBag.GroupMembers = _context.Members.ToList();
         }
     }
 }

@@ -6,6 +6,26 @@
     <form asp-action="Edit" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group row">
+            <h5 class="col-3"><label asp-for="MemID" class="col-form-label">Select your name:</label></h5>
+            <div class="col-9">
+                <select class="form-control" asp-for="MemID"
+                    asp-items="@(new SelectList(ViewBag.GroupMembers, "GroupMembersID", "FullName"))">
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <h5 class="col-3"><label asp-for="FavRating" class="col-form-label">How much I love this movie:</label></h5>
+            <div class="col-9">
+                <select class="form-control" asp-for="FavRating">
+                    <option value="5">It's my upmost favorite!</option>
+                    <option value="4">It's one of my favorites!</option>
+                    <option value="3">I really like this one!</option>
+                    <option value="2">This is an OK movie</option>
+                    <option value="1">I've seen this one before</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
             <h5 class="col-3"><label asp-for="Movie.MovieName" class="col-form-label">Movie Name:</label></h5>
             <div class="col-9">
                 <input type="text" class="form-control" id="MovieName" asp-for="Movie.MovieName">
