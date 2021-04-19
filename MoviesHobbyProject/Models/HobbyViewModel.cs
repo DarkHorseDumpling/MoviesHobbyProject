@@ -13,5 +13,6 @@ namespace MoviesHobbyProject.Models
 
         public int MemID { get; set; }
         public int MovID { get; set; }
+        public int FavID { get; set; }
     }
 }
