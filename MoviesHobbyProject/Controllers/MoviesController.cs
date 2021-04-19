@@ -19,12 +19,12 @@ namespace MovieHobbiesProject.Controllers
         }
         public IActionResult ViewAll()
         {
-            //var allMovies = _context.Movies
-            //.OrderBy(m => m.MovieName).ToList();
-            var model = new MovieApiModel();
-            //{
-                //MoviesList = allMovies
-            //};
+            var allMovies = _context.Movies
+                .OrderBy(m => m.MovieName).ToList();
+            var model = new HobbyViewModel
+            {
+                MoviesList = allMovies
+            };
             ViewBag.Title = "All Movies";
             return View(model);
         }

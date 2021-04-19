@@ -12,7 +12,6 @@ namespace MoviesHobbyProject.Models
         public int SavedMoviesID { get; set; }
         public int APIReferenceID { get; set; }
         public string MovieName { get; set; }
-        public string Poster_path { get; set; }
 
         public string Slug
         {
