@@ -9,7 +9,7 @@ using MoviesHobbyProject.Models;
 namespace MoviesHobbyProject.Migrations
 {
     [DbContext(typeof(MemberMoviesContext))]
-    [Migration("20210407164924_Initial")]
+    [Migration("20210419202627_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,6 +26,9 @@ namespace MoviesHobbyProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FavMovieReason")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -44,37 +47,42 @@ namespace MoviesHobbyProject.Migrations
                         new
                         {
                             GroupMembersID = 1,
+                            FavMovieReason = "This is an old movie I used to watch with my mother when I was young. I enjoy the subtle and silly humor of it. I don't watch it often, but I don't typically re-watch movies and always enjoy watching this one.",
                             FirstName = "Alainna",
                             LastName = "Nichols",
-                            MemberBio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae."
+                            MemberBio = "I am a third-year student at University of Cincinnati, majoring in Information Technology with a concentration in Software Development. I am a full-time UX Development and Design Specialist for LexisNexis. I don't have a lot of time for hobbies, but when I do, it is usually watching TV/movies or drawing and painting."
                         },
                         new
                         {
                             GroupMembersID = 2,
+                            FavMovieReason = "I’ve watched this movie a million times and still love it. The concepts are deep, the way it is shot and written is unique and fun, and the soundtrack is one of the best that I can think of.",
                             FirstName = "Martin",
-                            LastName = "Dietal",
-                            MemberBio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae."
+                            LastName = "Dietel",
+                            MemberBio = "I am a 33-year-old male third year student at the University of Cincinnati completing my Bachelors in IT with a concentration on software development. I love to bike, hike, watch movies and shows, listen to music, and a bit of gaming from time to time."
                         },
                         new
                         {
                             GroupMembersID = 3,
+                            FavMovieReason = "It’s a classic. I grew up watching Finding Nemo and other Disney/Pixar movies and it is my favorite out of all of them. It always brings me a sense of nostalgia every time I watch it.",
                             FirstName = "Saleem",
                             LastName = "Dweik",
-                            MemberBio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae."
+                            MemberBio = "I am a third-year student here at the University of Cincinnati, pursuing a degree in IT and in the software development track. I have many hobbies such as hiking, fishing, and woodworking."
                         },
                         new
                         {
                             GroupMembersID = 4,
+                            FavMovieReason = "I love horror musicals. The movie is gory and dark. It sort of reminds me of the kind of dark humor that Shakespeare wrote, nobody wins at the end.",
                             FirstName = "Danielle",
                             LastName = "Maddux",
-                            MemberBio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae."
+                            MemberBio = "I am a 34-year-old female who enjoys many things from video games and tabletop games to athletics such as Martial Arts and skateboarding."
                         },
                         new
                         {
                             GroupMembersID = 5,
+                            FavMovieReason = "I love this movie because of the unique way it portrays its characters. It had my interest from the moment it started and led me to think about things in a new perspective.",
                             FirstName = "Vismaya",
                             LastName = "Manchaiah",
-                            MemberBio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis a cras semper auctor neque vitae."
+                            MemberBio = "I am a third-year student at UC majoring in Information Technology and am also working towards my MBA. Some of my hobbies include playing the piano, hiking, and watching movies."
                         });
                 });
 
@@ -111,7 +119,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 1,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 3,
                             SavedMoviesID = 1
                         },
                         new
@@ -119,7 +127,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 2,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 4,
                             SavedMoviesID = 2
                         },
                         new
@@ -127,7 +135,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 3,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 4,
                             SavedMoviesID = 3
                         },
                         new
@@ -135,7 +143,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 4,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 4,
                             SavedMoviesID = 4
                         },
                         new
@@ -143,7 +151,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 5,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 3,
                             SavedMoviesID = 5
                         },
                         new
@@ -151,7 +159,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 6,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 4,
                             SavedMoviesID = 6
                         },
                         new
@@ -159,7 +167,7 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 7,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 4,
                             SavedMoviesID = 7
                         },
                         new
@@ -167,8 +175,40 @@ namespace MoviesHobbyProject.Migrations
                             MovieFavoritesID = 8,
                             GroupMembersID = 1,
                             IsMovie = true,
-                            Rating = 1,
+                            Rating = 5,
                             SavedMoviesID = 8
+                        },
+                        new
+                        {
+                            MovieFavoritesID = 9,
+                            GroupMembersID = 2,
+                            IsMovie = true,
+                            Rating = 5,
+                            SavedMoviesID = 9
+                        },
+                        new
+                        {
+                            MovieFavoritesID = 10,
+                            GroupMembersID = 3,
+                            IsMovie = true,
+                            Rating = 5,
+                            SavedMoviesID = 10
+                        },
+                        new
+                        {
+                            MovieFavoritesID = 11,
+                            GroupMembersID = 4,
+                            IsMovie = true,
+                            Rating = 5,
+                            SavedMoviesID = 11
+                        },
+                        new
+                        {
+                            MovieFavoritesID = 12,
+                            GroupMembersID = 5,
+                            IsMovie = true,
+                            Rating = 5,
+                            SavedMoviesID = 12
                         });
                 });
 
@@ -237,6 +277,30 @@ namespace MoviesHobbyProject.Migrations
                             SavedMoviesID = 8,
                             APIReferenceID = 2493,
                             MovieName = "The Princess Bride"
+                        },
+                        new
+                        {
+                            SavedMoviesID = 9,
+                            APIReferenceID = 141,
+                            MovieName = "Donnie Darko"
+                        },
+                        new
+                        {
+                            SavedMoviesID = 10,
+                            APIReferenceID = 12,
+                            MovieName = "Finding Nemo"
+                        },
+                        new
+                        {
+                            SavedMoviesID = 11,
+                            APIReferenceID = 14353,
+                            MovieName = "Repo! The Genetic Opera"
+                        },
+                        new
+                        {
+                            SavedMoviesID = 12,
+                            APIReferenceID = 550,
+                            MovieName = "Fight Club"
                         });
                 });
 
