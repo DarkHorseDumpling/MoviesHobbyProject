@@ -8,4 +8,8 @@
         <h2 class="h4">Name: @m.FullName</h2>
         <p class="lead">@m.MemberBio</p>
     }
+    @foreach (MovieFavorites f in Model.FavoritesCollection.Where(x => x.GroupMembersID == Model.MemID))
+    {
+        <p>@f.MovieFavoritesID</p>
+    }
 </div>
