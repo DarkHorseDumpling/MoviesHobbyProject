@@ -21,9 +21,42 @@ namespace MovieHobbiesProject.Controllers
         {
             var allMovies = _context.Movies
                 .OrderBy(m => m.MovieName).ToList();
+            List<string> apiValList = new List<string>();
+            List<MovieApiModel> apiItemList = new List<MovieApiModel>();
+            for (int x = 0; x < allMovies.Count; x++)
+            {
+                string apiIdVal = allMovies[x].APIReferenceID.ToString();
+                apiValList.Insert(x, apiIdVal);
+            }
+            for (int x=0; x < apiValList.Count; x++)
+            {
+                MovieApiModel movie = new MovieApiModel();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(UriString);
+                    var responseTask = client.GetAsync(apiValList[x] + "?api_key=" + apiKey);
+                    responseTask.Wait();
+
+                    var result = responseTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        var readTask = result.Content.ReadAsAsync<MovieApiModel>();
+                        readTask.Wait();
+
+                        movie = readTask.Result;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Server error. Please contact admin.");
+                    }
+                    apiItemList.Insert(x, movie);
+                }
+
+            }
             var model = new HobbyViewModel
             {
-                MoviesList = allMovies
+                MoviesList = allMovies,
+                ApiContentList = apiItemList
             };
             ViewBag.Title = "All Movies";
             return View(model);
