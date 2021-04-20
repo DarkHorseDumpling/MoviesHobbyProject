@@ -17,8 +17,9 @@
                 let output = '';
                 $.each(movies, (index, movie) => {
                     let poster_post = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
-                    output += `
-                        <div class="col-md-3 mb-3">
+                    if (movie.poster_path != null) {
+                        output += `
+                        <div class="d-flex align-content-stretch flex-wrap col-md-3 mb-3">
                             <div class="card card-body bg-light text-center">
                                 <img src="${poster_post}">
                                 <h6 class="pt-1">${movie.original_title}</h6>
@@ -26,6 +27,7 @@
                             </div>
                         </div>
                     `;
+                    }
                 });
 
                 $('#movies').html(output);
