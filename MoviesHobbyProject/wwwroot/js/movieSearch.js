@@ -57,10 +57,10 @@
                 let poster_post = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
                 let output = `
                     <div class="row">
-                        <div class="card card-body col-md-3" style="position:relative; top: 40px; right: 20px;">
+                        <div class="card card-body col-md-3" style="position:relative; top: 30px; left: 40px; text-center">
                             <img src="${poster_post}" class="thumbnail">
                         </div>
-                        <div class="col-md-7" style="padding-top: 40px;">
+                        <div class="col-md-7" style="padding-top: 30px; left: 130px">
                             <h2>${movie.original_title}</h2>
                             <h5>${movie.tagline}</h5>
                             <ul class="list-group">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="well">
+                        <div class="well" style="padding-top: 42px">
                             <h3>Plot</h3>
                             ${movie.overview}
                             <hr>
