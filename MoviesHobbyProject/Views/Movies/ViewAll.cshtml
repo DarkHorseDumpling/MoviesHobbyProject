@@ -11,7 +11,8 @@
 
                 <div class="cols-md-2 mb-3 p-2">
                     <div class="card card-body bg-light text-center">
-                        <a class="btn btn-dark btn-outline-dark btn-rounded text-light" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">@m.MovieName</a>
+                        @m.MovieName
+                        <a class="btn btn-dark btn-outline-dark btn-rounded text-light" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">Details</a>
                     </div>
                 </div>
 
