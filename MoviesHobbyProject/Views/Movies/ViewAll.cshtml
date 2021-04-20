@@ -1,22 +1,27 @@
 ﻿@model HobbyViewModel
 
-    <div class="jumbotron">
-        <h1 class="text-center h3">@ViewBag.Title</h1>
-    </div>
-    <div class="container-fluid">
-        <div class="row justify-content-between">
+<div class="jumbotron">
+    <h1 class="text-center h3">@ViewBag.Title</h1>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-between">
 
-            @foreach (SavedMovies m in Model.MoviesList)
+        <div class="card-columns">
+            @foreach (MovieApiModel a in Model.ApiContentList)
             {
-
-                <div class="cols-md-2 mb-3 p-2">
-                    <div class="card card-body bg-light text-center">
-                        @m.MovieName
-                        <a class="btn btn-dark btn-outline-dark btn-rounded text-light" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">Details</a>
+                <div class="card">
+                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/@a.Backdrop_path" alt="">
+                    <div class="card-body">
+                        <h2 class="h5 card-title">@a.Title</h2>
+                        <p class="card-text lead">@a.Tagline</p>
+                        @foreach (SavedMovies m in Model.MoviesList.Where(i => i.APIReferenceID == a.Id))
+                        {
+                            <p class="card-text"><a class="btn btn-dark btn-outline-dark btn-rounded text-light" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">Movie Details</a></p>
+                        }
                     </div>
                 </div>
-
             }
         </div>
-
     </div>
+
+</div>

@@ -3,8 +3,14 @@
     <h1 class="text-center h3">@Model.Title</h1>
 </div>
 <div class="p-5">
-    <h2 class="h5">@Model.Tagline</h2>
-    <img src="https://image.tmdb.org/t/p/w185/@Model.Poster_path" />
-    <hr />
-    <p class="lead">@Model.Overview</p>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <img class="img-fluid" src="https://image.tmdb.org/t/p/w185/@Model.Poster_path" />
+        </div>
+        <div class="col-md-8 col-xs-12 card card-body">
+            <h2 class="h5">@Model.Tagline</h2>
+            <hr color="gray">
+            <p class="lead">@Model.Overview</p>
+        </div>
+    </div>
 </div>

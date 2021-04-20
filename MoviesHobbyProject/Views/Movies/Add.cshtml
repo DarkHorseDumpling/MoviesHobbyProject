@@ -1,17 +1,29 @@
 ﻿@model MovieViewModel
+<script src="/js/FormApiPopulate.js"></script>
 <div class="jumbotron">
     <h1 class="text-center h3">@ViewBag.Title</h1>
 </div>
 <div class="p-5">
-    <form asp-action="Edit" method="post">
+    <form asp-action="Edit" method="post" id="ApiPing">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group row">
             <h5 class="col-3"><label asp-for="MemID" class="col-form-label">Select your name:</label></h5>
             <div class="col-9">
                 <select class="form-control" asp-for="MemID"
-                    asp-items="@(new SelectList(ViewBag.GroupMembers, "GroupMembersID", "FullName"))">
+                        asp-items="@(new SelectList(ViewBag.GroupMembers, "GroupMembersID", "FullName"))">
                 </select>
             </div>
+        </div>
+        <div class="form-group row">
+            <h5 class="col-3"><label asp-for="Movie.MovieName" class="col-form-label">Movie Name:</label></h5>
+            <div class="col-9">
+                <input type="text" class="form-control" id="MovieName" placeholder="Search Movies" asp-for="Movie.MovieName">
+                <a class="text-uppercase ml-2 btn btn-md btn-outline-dark float-right" onclick="ApiSearch()">Find in API</a>
+            </div>
+        </div>
+        <div id="showHideResults">
+            <div id="movies" class="row"></div>
+            <div id="movie" class="well"></div>
         </div>
         <div class="form-group row">
             <h5 class="col-3"><label asp-for="FavRating" class="col-form-label">How much I love this movie:</label></h5>
@@ -23,12 +35,6 @@
                     <option value="2">This is an OK movie</option>
                     <option value="1">I've seen this one before</option>
                 </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <h5 class="col-3"><label asp-for="Movie.MovieName" class="col-form-label">Movie Name:</label></h5>
-            <div class="col-9">
-                <input type="text" class="form-control" id="MovieName" asp-for="Movie.MovieName">
             </div>
         </div>
         <div class="form-group row">
