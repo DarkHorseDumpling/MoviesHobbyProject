@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MoviesHobbyProject.Models
 {
@@ -10,7 +6,9 @@ namespace MoviesHobbyProject.Models
     {
         [Key]
         public int SavedMoviesID { get; set; }
-        public int APIReferenceID { get; set; }
+        [Required(ErrorMessage ="Please search within API to select a valid movie!")]
+        public int? APIReferenceID { get; set; }
+        [Required(ErrorMessage = "The API Validation Key is invalid!")]
         public string MovieName { get; set; }
 
         public string Slug

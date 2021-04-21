@@ -5,7 +5,6 @@
 </div>
 <div class="p-5">
     <form asp-action="Edit" method="post" id="ApiPing">
-        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group row">
             <h5 class="col-3"><label asp-for="MemID" class="col-form-label">Select your name:</label></h5>
             <div class="col-9">
@@ -19,6 +18,8 @@
             <div class="col-9">
                 <input type="text" class="form-control" id="MovieName" placeholder="Search Movies" asp-for="Movie.MovieName">
                 <a class="text-uppercase ml-2 btn btn-md btn-outline-dark float-right" onclick="ApiSearch()">Find in API</a>
+                <span asp-validation-for="Movie.APIReferenceID" class="text-danger"></span>
+                <span asp-validation-for="Movie.MovieName" class="text-danger"></span>
             </div>
         </div>
         <div id="showHideResults">
@@ -37,13 +38,9 @@
                 </select>
             </div>
         </div>
-        <div class="form-group row">
-            <h5 class="col-3"><label asp-for="Movie.APIReferenceID" class="col-form-label">API Reference ID:</label></h5>
-            <div class="col-9">
-                <input type="text" class="form-control" id="APIReferenceID" asp-for="Movie.APIReferenceID">
-            </div>
-        </div>
-        <input type="hidden" asp-for="Movie.SavedMoviesID" value="@ViewBag.AddID" />
+        
+        <input type="hidden" class="form-control" id="APIReferenceID" asp-for="Movie.APIReferenceID"  required="required" />
+        <input type="hidden" asp-for="Movie.SavedMoviesID" value="@ViewBag.AddID"  required="required" />
         <button class="text-uppercase ml-2 btn btn-md btn-primary" type="submit">Submit</button>
         <a asp-controller="Home" asp-action="Index" class="text-uppercase ml-2 btn btn-md btn-warning">Cancel</a>
     </form>

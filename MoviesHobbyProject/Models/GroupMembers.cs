@@ -22,5 +22,15 @@ namespace MoviesHobbyProject.Models
                 return FirstName + " " + LastName;
             }
         }
+        public string Slug
+        {
+            get
+            {
+                if (FullName == null)
+                    return "";
+                else
+                    return FullName.Replace(' ', '-');
+            }
+        }
     }
 }

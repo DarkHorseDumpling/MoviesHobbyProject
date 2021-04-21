@@ -12,17 +12,35 @@
         {
             @foreach (SavedMovies l in Model.MoviesList.Where(y => y.SavedMoviesID == f.SavedMoviesID))
             {
-                <h3 class="h5 float-left">My favorite movie is @l.MovieName!</h3>
-                <div class="well float-right">
-                    <p class="lead">
-                        <em>Learn More About My Favorite: </em>
-                        <a class="btn btn-outline-dark ml-2" asp-area="" asp-controller="Movies"
-                            asp-action="MovieDetails" asp-route-slug="@l.Slug"
-                            asp-route-id="@l.SavedMoviesID">Learn More</a>
-                    </p>
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="h5">My favorite movie is @l.MovieName!</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="card-deck">
+                            <div class="card p-3 mb-3">
+                                <p class="lead">
+                                    <em>Learn More About My Favorite: </em>
+                                    <a class="btn btn-outline-dark ml-2" asp-area="" asp-controller="Movies"
+                           asp-action="MovieDetails" asp-route-slug="@l.Slug"
+                           asp-route-id="@l.SavedMoviesID">Learn More</a>
+                                </p>
+                            </div>
+                            <div class="col-md-5 col-xs-12">
+                                <div class="card p-3 mb-3" style="background:url('/images/moviePic.jpg'); background-size: cover; background-position: center; background-blend-mode: darken; background-color: black;">
+                                    <p class="lead">
+                                        <em>See other movies I like: </em>
+                                        <a class="btn btn-outline-dark ml-2" asp-area="" asp-controller="GroupMembers"
+                               asp-action="FavoriteMovies" asp-route-slug="@m.Slug"
+                               asp-route-id="@m.GroupMembersID">See More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
         }
-        <p class="lead float-left">@m.FavMovieReason</p>
+        <p class="lead"><span style="font-weight:600;">A little about my favorite: </span>@m.FavMovieReason</p>
     }
 </div>

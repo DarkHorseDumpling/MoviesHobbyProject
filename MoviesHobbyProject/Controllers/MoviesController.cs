@@ -110,7 +110,10 @@ namespace MovieHobbiesProject.Controllers
             }
             else
             {
-                return View("MovieDetails", selectedMovie.Movie);
+                ViewBag.Title = "Add A New Movie";
+                ViewBag.AddID = "0";
+                this.LoadViewBag();
+                return View("Add");
             }
         }
         public ActionResult MovieDetails(int id)
