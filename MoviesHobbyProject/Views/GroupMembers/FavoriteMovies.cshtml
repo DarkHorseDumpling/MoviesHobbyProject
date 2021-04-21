@@ -16,7 +16,10 @@
                         <p class="card-text lead">@a.Tagline</p>
                         @foreach (SavedMovies m in Model.MoviesList.Where(i => i.APIReferenceID == a.Id))
                         {
-                            <p class="card-text"><a class="btn btn-dark btn-outline-dark btn-rounded text-light" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">Movie Details</a></p>
+                            <p class="card-text">
+                                <a class="btn btn-outline-dark" asp-area="" asp-controller="Movies" asp-action="MovieDetails" asp-route-slug="@m.Slug" asp-route-id="@m.SavedMoviesID">Movie Details</a>
+                                <a class="btn btn-outline-warning d-none" asp-controller="Movies" asp-action="Edit" asp-route-id="@m.SavedMoviesID">Edit Movie</a>
+                            </p>
                         }
                     </div>
                 </div>

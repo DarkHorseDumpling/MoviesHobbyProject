@@ -69,20 +69,21 @@ namespace MovieHobbiesProject.Controllers
             this.LoadViewBag();
             return View();
         }
-        [HttpGet]
+        [HttpGet]   //Edit Action is currently unused. Add form will need adjusted to use model components to update.
         public IActionResult Edit(int id)
         {
             ViewBag.Title = "Edit the Movie";
             ViewBag.AddID = id;
             this.LoadViewBag();
-            MovieViewModel movie = new MovieViewModel
+            MovieViewModel movieModel = new MovieViewModel
             {
                 Movie = _context.Movies
-                .FirstOrDefault(m => m.SavedMoviesID == id)
+                .FirstOrDefault(m => m.SavedMoviesID == id),
+                MovID = id
             };
-            return View("Add", movie);
+            return View("Add", movieModel);
         }
-        [HttpPost]
+        [HttpPost]   //"Edit" portion of this method is currently unused. Add form will need adjusted to use model components to update.
         public IActionResult Edit(MovieViewModel selectedMovie)
         {
             MovieFavorites favorite = new MovieFavorites

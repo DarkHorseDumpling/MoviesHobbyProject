@@ -26,21 +26,22 @@
                            asp-route-id="@l.SavedMoviesID">Learn More</a>
                                 </p>
                             </div>
-                            <div class="col-md-5 col-xs-12">
-                                <div class="card p-3 mb-3" style="background:url('/images/moviePic.jpg'); background-size: cover; background-position: center; background-blend-mode: darken; background-color: black;">
-                                    <p class="lead">
-                                        <em>See other movies I like: </em>
-                                        <a class="btn btn-outline-dark ml-2" asp-area="" asp-controller="GroupMembers"
-                               asp-action="FavoriteMovies" asp-route-slug="@m.Slug"
-                               asp-route-id="@m.GroupMembersID">See More</a>
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             }
         }
         <p class="lead"><span style="font-weight:600;">A little about my favorite: </span>@m.FavMovieReason</p>
+
+        <div class="offset-md-2 col-md-5 col-xs-12">
+            <div class="card p-3 mb-3" style="background:url('/images/moviePic.jpg'); background-size: cover; background-position: center;">
+                <p class="lead">
+                    <em>See other movies I like: </em>
+                    <a class="btn btn-outline-dark ml-2" asp-area="" asp-controller="GroupMembers"
+                   asp-action="FavoriteMovies" asp-route-slug="@m.Slug"
+                   asp-route-id="@m.GroupMembersID">See More</a>
+                </p>
+            </div>
+        </div>
     }
 </div>

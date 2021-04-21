@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <None Include="wwwroot\images\moviePic.jpg" />
-    <None Include="wwwroot\images\soitPic.jfif" />
-    <None Include="wwwroot\images\ucPic.jfif" />
   </ItemGroup>
 
   <ItemGroup>

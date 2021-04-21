@@ -78,7 +78,7 @@
                                     ${movie.overview}
                                     <hr>
                                     <a href="http://imdb.com/title/${movie.imdb_id}" target="_blank" class="btn btn-primary">View IMDB</a>
-                                    <a href="." class="btn btn-default">Go Back To Search</a>
+                                    <a href="." class="btn btn-outline-dark ml-3">Go Back To Search</a>
                                 </div>
                         </div>
                     </div>
