@@ -57,30 +57,32 @@
                 let poster_post = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
                 let output = `
                     <div class="row">
-                        <div class="card card-body col-md-3" style="position:relative; top: 30px; left: 40px; text-center">
-                            <img src="${poster_post}" class="thumbnail">
+                        <div class="col-md-4 col-xs-12 mt-5">
+                            <div class="card card-body text-center">
+                            <img src="${poster_post}" class="img-fluid">
+                            </div>
                         </div>
-                        <div class="col-md-7" style="padding-top: 30px; left: 130px">
-                            <h2>${movie.original_title}</h2>
-                            <h5>${movie.tagline}</h5>
-                            <ul class="list-group">
-                                <li class="list-group-item"><strong>Runtime: </strong>${movie.runtime} minutes</li>
-                                <li class="list-group-item"><strong>Genre: </strong>${movie.genres[0].name}</li>
-                                <li class="list-group-item"><strong>Released: </strong>${movie.release_date}</li>
-                                <li class="list-group-item"><strong>Rating: </strong>${movie.vote_average}</li>
-                                <li class="list-group-item"><strong>Budget: </strong>$${(movie.budget).toLocaleString("en")}</li>
-                                <li class="list-group-item"><strong>Revenue: </strong>$${(movie.revenue).toLocaleString("en")}</li>
+                        <div class="col-md-8 col-xs-12">
+                                <h2>${movie.original_title}</h2>
+                                <h5>${movie.tagline}</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><strong>Runtime: </strong>${movie.runtime} minutes</li>
+                                    <li class="list-group-item"><strong>Genre: </strong>${movie.genres[0].name}</li>
+                                    <li class="list-group-item"><strong>Released: </strong>${movie.release_date}</li>
+                                    <li class="list-group-item"><strong>Rating: </strong>${movie.vote_average}</li>
+                                    <li class="list-group-item"><strong>Budget: </strong>$${(movie.budget).toLocaleString("en")}</li>
+                                    <li class="list-group-item"><strong>Revenue: </strong>$${(movie.revenue).toLocaleString("en")}</li>
+                                </ul>
+                                <div class="well" style="padding-top: 42px">
+                                    <h3>Plot</h3>
+                                    ${movie.overview}
+                                    <hr>
+                                    <a href="http://imdb.com/title/${movie.imdb_id}" target="_blank" class="btn btn-primary">View IMDB</a>
+                                    <a href="." class="btn btn-default">Go Back To Search</a>
+                                </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="well" style="padding-top: 42px">
-                            <h3>Plot</h3>
-                            ${movie.overview}
-                            <hr>
-                            <a href="http://imdb.com/title/${movie.imdb_id}" target="_blank" class="btn btn-primary">View IMDB</a>
-                            <a href="." class="btn btn-default">Go Back To Search</a>
-                        </div>
-                    </div>
+  
                 `;
 
                 $('#movie').html(output);
